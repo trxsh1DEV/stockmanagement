@@ -1,0 +1,135 @@
+<%- include('includes/head'); %>
+<%- include('includes/nav') %>
+
+<main class="main">
+  <h1>Produtos Registrados: <span style="font-style: italic;">145</span></h1>
+  <section class="sidebar-header">
+
+      <div class="search-box">
+          <input type="text" name="" class="search-text" id="" placeholder="Pesquisar...">
+          <div href="" class="search-btn">
+              <i class="material-symbols-outlined loupe-blue">search</i>
+              <!-- <img src="./loupe-white.svg" class="loupe-blue" alt="Lupe of search white" width="25px" height="25px"> -->
+          </div>
+      </div>
+      <div class="filter_box">
+          <i class="material-symbols-outlined">filter_list</i>
+          <span>Filtros</span>
+      </div>
+      <i class="material-symbols-outlined" id="add-product">add_shopping_cart</i>
+
+  </section>
+
+  <section class="products-main-info">
+
+      <article>
+          <aside class="values-products-main">R$ 70.216,00</aside>
+          <aside class="products-main-details">Valor em estoque</aside>
+      </article>
+      <article>
+          <aside class="values-products-main">R$ 25.958,00</aside>
+          <aside class="products-main-details">Custo do estoque</aside>
+      </article>
+      <article>
+          <aside class="values-products-main">R$ 44.258,00</aside>
+          <aside class="products-main-details">Previsão de lucro</aside>
+      </article>
+      <article>
+          <aside class="values-products-main">8</aside>
+          <aside class="products-main-details">Em falta</aside>
+      </article>
+      <article>
+          <aside class="values-products-main">2</aside>
+          <aside class="products-main-details">Sem estoque</aside>
+      </article>
+      <article>
+          <aside class="values-products-main">145</aside>
+          <aside class="products-main-details">Qtde em estoque</aside>
+      </article>
+
+  </section>
+
+  <section class="table-products-main">
+      <!--for demo wrap-->
+      <h1>Tabela de produtos</h1>
+      <!-- <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Company</th>
+                <th>Price</th>
+                <th>Change</th>
+                <th>Change %</th>
+              </tr>
+            </thead>
+          </table>
+        </div> -->
+      <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+              <thead class="thead-main-products">
+                  <tr>
+                      <td style="width: 80px;"><span>ID</span> <i class="material-symbols-outlined">swap_vert</i>
+                      </td>
+                      <td><span>Produto</span> <i class="material-symbols-outlined">swap_vert</i></td>
+                      <td><span>Categoria</span> <i class="material-symbols-outlined">swap_vert</i></td>
+                      <td><span>Estoque</span> <i class="material-symbols-outlined">swap_vert</i></td>
+                      <td><span>Preço</span> <i class="material-symbols-outlined">swap_vert</i></td>
+                      <!-- <td><span>Catalógo</span> <i class="material-symbols-outlined">swap_vert</i></td> -->
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>00</td>
+                      <td>Ryzen 3 2200G</td>
+                      <td>CPUs</td>
+                      <td>2</td>
+                      <td><span>R$ </span>350</td>
+                  </tr>
+
+              </tbody>
+          </table>
+      </div>
+
+      <!-- Add product -->
+      <dialog>
+          <i class="material-symbols-outlined" id="btn-close">close</i>
+          
+          <form action="" class="add-product-dialog-form" method="">
+              <h2 class="add-product-dialog-title">Adicione um novo produto</h2>
+
+              <div class="container-form">
+                  <div class="form signup">
+                      <!-- <h2>Formulário de contato</h2> -->
+                      <div class="inputBox" >
+                          <input type="text" name="" id="input-name-prod" required>
+                          <i class="material-symbols-outlined" id="btn-close">shopping_cart_checkout</i>
+                          <span>Nome do produto...</span>
+                      </div>
+                      <div class="inputBox" >
+                          <input type="text" name="" required id="input-category-prod">
+                          <i class="material-symbols-outlined" id="btn-close">category</i>
+                          <span>Categoria</span>
+                      </div>
+                      <div class="inputBox" >
+                          <input type="text" name="" required id="input-price-prod">
+                          <i class="material-symbols-outlined" id="btn-close">attach_money</i>
+                          <span>Preço</span>
+                      </div>
+                      <div class="inputBox" >
+                          <i class="material-symbols-outlined" id="btn-close">post_add</i>
+                          <textarea name="" required cols="30" rows="10" id="input-desc-prod"></textarea>
+                          <span>Detalhes (Opcional)</span>
+                      </div>
+                      <input type="submit" value="Enviar">
+                      <!-- <div class="inputBox">
+                      </div> -->
+                  </div>
+          </form>
+      </dialog>
+      <!--  -->
+  </section>
+
+</main>
+
+<%- include('includes/footer'); %>
