@@ -1,0 +1,27 @@
+<%- include('includes/head'); %>
+
+    <main id="main">
+        <section class="container-login">
+
+            <form class="container-form" action="/login" method="post">
+                <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                <div class="form signup">
+                    <h1>Faça seu login</h1>
+                    <div class="inputBox">
+                        <input type="text" name="" required>
+                        <i class="material-symbols-outlined">mail</i>
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="password" name="" required>
+                        <i class="material-symbols-outlined">password</i>
+                        <span>Senha</span>
+                    </div>
+                    <button class="btn-login" type="submit" style="--clr: #1e92ff;"><span>Acessar</span><i></i></button>
+                </div>
+            </form>
+
+        </section>
+    </main>
+
+    <%- include('includes/footer'); %>

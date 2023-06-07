@@ -1,0 +1,33 @@
+<%- include('includes/head'); %>
+
+    <main id="main">
+        <section class="container-login">
+
+            <form class="container-form" action="/register" method="post">
+                <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                <div class="form signup">
+                    <h1>Cadastre-se</h1>
+                    <div class="inputBox">
+                        <input type="text" name="email" required>
+                        <i class="material-symbols-outlined">mail</i>
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="password" name="password" required>
+                        <i class="material-symbols-outlined">password</i>
+                        <span>Senha</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="password" name="repeatPassword" required>
+                        <i class="material-symbols-outlined">password</i>
+                        <span>Repita a senha</span>
+                    </div>
+                    <%- include('includes/messages'); %>
+                    <button class="btn-login" type="submit" style="--clr: #1e92ff;"><span>Criar conta</span><i></i></button>
+                </div>
+            </form>
+
+        </section>
+    </main>
+
+    <%- include('includes/footer'); %>

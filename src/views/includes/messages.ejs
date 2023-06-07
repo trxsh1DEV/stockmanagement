@@ -1,0 +1,23 @@
+<% if (errors.length > 0) { %>
+
+    <section class="show-errors">
+        <div class="container-errors">
+            <% errors.forEach(err => { %>
+                <%= err %><br>
+            <% }); %>
+        </div>
+    </section>
+
+<% } %>
+
+<% if (success.length > 0) { %>
+
+    <section class="show-success">
+        <div class="container-success">
+            <% success.forEach(suc => { %>
+                <%= suc %><br>
+            <% }); %>
+        </div>
+    </section>
+
+<% } %>

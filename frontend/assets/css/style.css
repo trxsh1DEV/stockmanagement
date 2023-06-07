@@ -345,12 +345,11 @@ dialog > #btn-close:hover{
 /* Fim adicionando produto */
 
 /* Formulario produto */
-
+/* 
 .container-form .form {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-direction: column; */
   gap: 25px;
   flex-wrap: wrap;
 }
@@ -439,7 +438,7 @@ dialog > #btn-close:hover{
 }
 .container-form .form .inputBox input:hover{
   filter: brightness(0.80);
-}
+} */
 
 /* Fim Formulário produto */
 
