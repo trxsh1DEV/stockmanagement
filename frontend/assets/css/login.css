@@ -7,7 +7,7 @@
 }
 
 .container-form{
-    max-width: 600px;
+    max-width: 700px;
     padding: 40px 100px;
     border-radius: 20px;
     border: 8px solid #1e92ff85;
@@ -31,7 +31,8 @@
 }
 .container-form .form .inputBox{
     position: relative;
-    width: 350px;
+    width: 400px;
+    max-width: 500px;
 }
 
 .container-form .form .inputBox input, .container-form .form .inputBox textarea{
@@ -178,4 +179,10 @@
 .btn-login:hover i::after{
     width: 25px;
     left: 80%;
+}
+
+@media (width >= 900px) {
+    .container-login {
+        margin-left: 250px;
+    }
 }

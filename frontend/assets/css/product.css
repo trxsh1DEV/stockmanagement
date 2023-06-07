@@ -1,0 +1,61 @@
+dialog::backdrop {
+    background-color: rgba(0 0 0 / .9);
+    margin: auto;
+}
+
+dialog {
+    /* display: block; */
+    opacity: 0;
+    margin: auto;
+    padding: 2em;
+    border: none;
+    border-radius: 20px;
+    width: 80vw;
+    max-width: 800px;
+    height: 550px;
+    text-align: justify;
+    box-shadow: 0 0 5em rgba(34, 210, 233, 1);
+    background-color: #444;
+    color: aliceblue;
+    overflow: hidden;
+    z-index: 2;
+    pointer-events: none;
+    transition: all 400ms ease-in-out;
+    position: relative;
+}
+
+dialog[open]{
+    opacity: 1;
+    pointer-events: inherit;
+    /* margin-right: 22vw; */
+}
+
+dialog p::selection, dialog h2::selection {
+    background-color: #111;
+    color: turquoise;
+}
+
+dialog h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2em;
+    text-transform: capitalize;
+}
+
+dialog > #btn-close {
+    cursor: pointer;
+    font-size: 2.2em;
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    /* width: 100%;
+    text-align: end; */
+    /* margin-top: 15px; */
+}
+
+dialog > #btn-close:hover{
+    transform:translateY(-15%);   
+    /* opacity: .8; */
+    color:indianred;
+    transition: all 400ms ease-in-out;
+}

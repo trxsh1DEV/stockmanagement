@@ -1,55 +1,72 @@
 <aside class="sidebar">
     <nav class="">
         <button>
-            <span>
+            <span class="navbar-itens">
                 <i class="material-symbols-outlined">real_estate_agent</i>
-                <span>Vendas</span>
+                <span class="navbar-item">Vendas</span>
             </span>
         </button>
 
         <button>
-            <span>
+            <span class="navbar-itens">
                 <i class="material-symbols-outlined">local_mall</i>
-                <span>Produtos</span>
+                <span class="navbar-item">Produtos</span>
             </span>
         </button>
         <button>
-            <span>
+            <span class="navbar-itens">
                 <i class="material-symbols-outlined">event_available</i>
-                <span>Catálogo Disponível</span>
+                <span class="navbar-item">Catálogo Disponível</span>
             </span>
         </button>
 
         <button>
-            <span>
+            <span class="navbar-itens">
                 <i class="material-symbols-outlined">person_search</i>
-                <span>Clientes</span>
+                <span class="navbar-item">Clientes</span>
             </span>
         </button>
         <button>
-            <span>
+            <span class="navbar-itens">
                 <i class="material-symbols-outlined">timeline</i>
-                <span>Histórico de vendas</span>
+                <span class="navbar-item">Histórico de vendas</span>
             </span>
         </button>
         <button>
-            <span>
+            <span class="navbar-itens">
                 <i class="material-symbols-outlined">account_circle</i>
-                <span>Usuários</span>
+                <span class="navbar-item">Usuários</span>
             </span>
         </button>
         <button>
-            <span>
+            <span class="navbar-itens">
                 <i class="material-symbols-outlined">lab_profile</i>
-                <span>Relatório</span>
+                <span class="navbar-item">Relatório</span>
             </span>
         </button>
         <button>
-            <span>
+            <span class="navbar-itens">
                 <i class="material-symbols-outlined">browse_activity</i>
-                <span>DashBoard</span>
+                <span class="navbar-item">DashBoard</span>
             </span>
         </button>
+
+        <% if (user) { %>
+            <button>
+                <span class="navbar-itens">
+                    <i class="material-symbols-outlined">logout</i>
+                    <span class="navbar-item">Sair</span>
+                    <a href="/login/logout">SAIR</a>
+                </span>
+            </button>
+        <% } else { %>
+            <button>
+                <span class="navbar-itens">
+                    <i class="material-symbols-outlined">input</i>
+                    <a class="navbar-item" href="/login" style="outline: none; border: none;">Entrar</a>
+                </span>
+            </button>
+        <% } %>
 
         <div id="dark-theme">
             <span id="dark-theme-text">Dark Theme</span>

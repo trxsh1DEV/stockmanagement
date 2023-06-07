@@ -1,5 +1,5 @@
 <%- include('includes/head'); %>
-
+<%- include('includes/nav') %>
     <main id="main">
         <section class="container-login">
 
@@ -8,15 +8,16 @@
                 <div class="form signup">
                     <h1>Faça seu login</h1>
                     <div class="inputBox">
-                        <input type="text" name="" required>
+                        <input type="text" name="email" required>
                         <i class="material-symbols-outlined">mail</i>
                         <span>Email</span>
                     </div>
                     <div class="inputBox">
-                        <input type="password" name="" required>
-                        <i class="material-symbols-outlined">password</i>
+                        <input type="password" name="password" required>
+                        <i class="material-symbols-outlined">lock_open</i>
                         <span>Senha</span>
                     </div>
+                    <%- include('includes/messages'); %>
                     <button class="btn-login" type="submit" style="--clr: #1e92ff;"><span>Acessar</span><i></i></button>
                 </div>
             </form>

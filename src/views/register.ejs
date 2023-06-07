@@ -1,4 +1,5 @@
 <%- include('includes/head'); %>
+<%- include('includes/nav'); %>
 
     <main id="main">
         <section class="container-login">
@@ -10,16 +11,16 @@
                     <div class="inputBox">
                         <input type="text" name="email" required>
                         <i class="material-symbols-outlined">mail</i>
-                        <span>Email</span>
+                        <span>E-mail</span>
                     </div>
                     <div class="inputBox">
                         <input type="password" name="password" required>
-                        <i class="material-symbols-outlined">password</i>
+                        <i class="material-symbols-outlined">lock</i>
                         <span>Senha</span>
                     </div>
                     <div class="inputBox">
                         <input type="password" name="repeatPassword" required>
-                        <i class="material-symbols-outlined">password</i>
+                        <i class="material-symbols-outlined">lock</i>
                         <span>Repita a senha</span>
                     </div>
                     <%- include('includes/messages'); %>
