@@ -16,8 +16,12 @@ route.get('/register', loginController.register);
 route.post('/register', loginController.registerCreate);
 route.get('/login/logout', loginController.logout);
 
-// Rotas de contato
+// Rotas de produto
 route.get('/product', loginRequired, productController.index);
 route.post('/product/register', loginRequired, productController.registerProduct);
+route.get(`/product/:id`, loginRequired, productController.editProduct);
+route.post('/product/edit/:id', loginRequired, productController.edit)
+route.get('/product/delete/:id', loginRequired, productController.delete);
+
 // route.get('/product/register', productController.newProduct);
 module.exports = route;

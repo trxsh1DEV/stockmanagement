@@ -4,32 +4,36 @@
     <main id="main">
         <section class="container-login">
 
-            <form class="container-form" action="/product/register" method="post">
+            <% if (product._id) { %>
+                <form class="container-form" action="/product/edit/<%=product._id%>" method="post">
+            <% } else { %>
+                <form class="container-form" action="/product/register" method="post">
+            <% } %>
                 <input type="hidden" name="_csrf" value=<%= csrfToken %>>
                 <div class="form signup">
                     <h1>Cadastrar produto</h1>
                     <div class="inputBox">
-                        <input type="text" name="nameProduct" >
+                        <input type="text" value="<%= product.nameProd %>" name="nameProd" required>
                         <i class="material-symbols-outlined">inventory</i>
                         <span>Nome do produto</span>
                     </div>
                     <div class="inputBox">
-                        <input type="text" name="category" >
+                        <input type="text" name="category" value="<%= product.category %>" required>
                         <i class="material-symbols-outlined">category</i>
                         <span>Categoria</span>
                     </div>
                     <div class="inputBox">
-                        <input type="text" name="price" >
+                        <input type="text" name="price" value="<%= product.price %>" required>
                         <i class="material-symbols-outlined">attach_money</i>
                         <span>Preço</span>
                     </div>
                     <div class="inputBox">
-                        <textarea name="description" id="" cols="30" rows="10"></textarea>
+                        <textarea name="description" id="" cols="30" rows="10"><%= product.description %></textarea>
                         <i class="material-symbols-outlined">post_add</i>
                         <span>Descrição</span>
                     </div>
                     <%- include('../includes/messages'); %>
-                    <button class="btn-login" type="submit" style="--clr: #1e92ff;"><span>Criar</span><i></i></button>
+                    <button class="btn-login" type="submit" style="--clr: #1e92ff;"><span>Salvar</span><i></i></button>
                 </div>
             </form>
 

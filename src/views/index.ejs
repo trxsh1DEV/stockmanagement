@@ -52,22 +52,12 @@
   <section class="table-products-main">
       <!--for demo wrap-->
       <h1>Tabela de produtos</h1>
+
       <%- include('includes/messages') %>
-      <!-- <div class="tbl-header">
-          <table cellpadding="0" cellspacing="0" border="0">
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Company</th>
-                <th>Price</th>
-                <th>Change</th>
-                <th>Change %</th>
-              </tr>
-            </thead>
-          </table>
-        </div> -->
+
+      <% if (products.length > 0) { %>
       <div class="tbl-content">
-          <table cellpadding="0" cellspacing="0" border="0">
+          <table cellpadding="0" cellspacing="0" border="1">
               <thead class="thead-main-products">
                   <tr>
                       <td style="width: 80px;"><span>ID</span> <i class="material-symbols-outlined">swap_vert</i>
@@ -76,24 +66,34 @@
                       <td><span>Categoria</span> <i class="material-symbols-outlined">swap_vert</i></td>
                       <td><span>Estoque</span> <i class="material-symbols-outlined">swap_vert</i></td>
                       <td><span>Preço</span> <i class="material-symbols-outlined">swap_vert</i></td>
+                      <td><span>Descrição</span> <i class="material-symbols-outlined">swap_vert</i></td>
                       <!-- <td><span>Catalógo</span> <i class="material-symbols-outlined">swap_vert</i></td> -->
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td>00</td>
-                      <td>Ryzen 3 2200G</td>
-                      <td>CPUs</td>
-                      <td>2</td>
-                      <td><span>R$ </span>350</td>
-                  </tr>
-
+                <% products.forEach(prod => { %>
+                    <tr>
+                        <!-- <td><%= prod._id %></td> -->
+                        <td>01</td>
+                        <td><%= prod.nameProd %></td>
+                        <td><%= prod.category %></td>
+                        <td>01</td>
+                        <td><span>R$ </span><%= prod.price %></td>
+                        <td><%= prod.description %></td>
+                        <td><a href="/product/<%=prod._id%>">Editar</a></td>
+                        <td><a href="/product/delete/<%=prod._id%>">Excluir</a></td>
+                    </tr>
+                <% }) %>
               </tbody>
           </table>
       </div>
+      <% } else { %>
+        <p style="text-align: center;">Nenhum produto foi cadastrado</p>
+      <% } %>
+
 
       <!-- Add product -->
-      <dialog>
+      <!-- <dialog>
           <i class="material-symbols-outlined" id="btn-close">close</i>
           
           <form action="" class="add-product-dialog-form" method="">
@@ -101,7 +101,6 @@
 
               <div class="container-form">
                   <div class="form signup">
-                      <!-- <h2>Formulário de contato</h2> -->
                       <div class="inputBox" >
                           <input type="text" name="" id="input-name-prod" required>
                           <i class="material-symbols-outlined" id="btn-close">shopping_cart_checkout</i>
@@ -123,12 +122,10 @@
                           <span>Detalhes (Opcional)</span>
                       </div>
                       <input type="submit" value="Enviar">
-                      <!-- <div class="inputBox">
-                      </div> -->
+
                   </div>
           </form>
-      </dialog>
-      <!--  -->
+      </dialog> -->
   </section>
 
 </main>
