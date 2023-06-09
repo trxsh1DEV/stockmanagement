@@ -1,71 +1,77 @@
 <aside class="sidebar">
     <nav class="">
-        <button>
+        <a class="navbar-items-btn" href="/">
+            <span class="navbar-itens">
+                <i class="material-symbols-outlined">domain</i>
+                <span class="navbar-item">Home</span>
+            </span>
+        </a>
+
+        <a class="navbar-items-btn" href="/">
             <span class="navbar-itens">
                 <i class="material-symbols-outlined">real_estate_agent</i>
                 <span class="navbar-item">Vendas</span>
             </span>
-        </button>
+        </a>
 
-        <button>
+        <a class="navbar-items-btn" href="/">
             <span class="navbar-itens">
                 <i class="material-symbols-outlined">local_mall</i>
                 <span class="navbar-item">Produtos</span>
             </span>
-        </button>
-        <button>
+        </a>
+        <a class="navbar-items-btn" href="/">
             <span class="navbar-itens">
                 <i class="material-symbols-outlined">event_available</i>
                 <span class="navbar-item">Catálogo Disponível</span>
             </span>
-        </button>
+        </a>
 
-        <button>
+        <a class="navbar-items-btn" href="/">
             <span class="navbar-itens">
                 <i class="material-symbols-outlined">person_search</i>
                 <span class="navbar-item">Clientes</span>
             </span>
-        </button>
-        <button>
+        </a>
+        <a class="navbar-items-btn" href="/">
             <span class="navbar-itens">
                 <i class="material-symbols-outlined">timeline</i>
                 <span class="navbar-item">Histórico de vendas</span>
             </span>
-        </button>
-        <button>
+        </a>
+        <a class="navbar-items-btn" href="/">
             <span class="navbar-itens">
                 <i class="material-symbols-outlined">account_circle</i>
                 <span class="navbar-item">Usuários</span>
             </span>
-        </button>
-        <button>
+        </a>
+        <a class="navbar-items-btn" href="/">
             <span class="navbar-itens">
                 <i class="material-symbols-outlined">lab_profile</i>
                 <span class="navbar-item">Relatório</span>
             </span>
-        </button>
-        <button>
+        </a>
+        <a class="navbar-items-btn" href="/">
             <span class="navbar-itens">
                 <i class="material-symbols-outlined">browse_activity</i>
                 <span class="navbar-item">DashBoard</span>
             </span>
-        </button>
+        </a>
 
         <% if (user) { %>
-            <button>
+            <a class="navbar-items-btn" href="/login/logout">
                 <span class="navbar-itens">
-                    <i class="material-symbols-outlined">logout</i>
+                    <i class="material-symbols-outlined">exit_to_app</i>
                     <span class="navbar-item">Sair</span>
-                    <a href="/login/logout">SAIR</a>
                 </span>
-            </button>
+            </a>
         <% } else { %>
-            <button>
+            <a class="navbar-items-btn" href="/login">
                 <span class="navbar-itens">
                     <i class="material-symbols-outlined">input</i>
-                    <a class="navbar-item" href="/login" style="outline: none; border: none;">Entrar</a>
+                    <span class="navbar-item">Entrar</span>
                 </span>
-            </button>
+            </a>
         <% } %>
 
         <div id="dark-theme">

@@ -63,7 +63,7 @@
 }
 .container-form .form .inputBox input:valid ~ span,
 .container-form .form .inputBox input:focus ~ span,
-.container-form .form .inputBox textarea:focus ~ span,
+.container-form .form .inputBox textarea:valid ~ span,
 .container-form .form .inputBox textarea:focus ~ span
 {
     color: #1e92ff;
