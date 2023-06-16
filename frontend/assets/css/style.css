@@ -239,6 +239,8 @@ nav #dark-theme-text {
   display: flex;
   align-items: center;
   justify-content: center;
+  outline: none;
+  text-decoration: none;
 }
 
 .search-btn .loupe-white{

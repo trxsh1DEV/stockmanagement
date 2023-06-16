@@ -1,8 +1,9 @@
-const Products = require('../models/ProductModel');
+// const Products = require('../models/ProductModel');
 
 exports.index = async (req, res) => {
   // Pegando produtos do método estático "busca contatos"
-  const products = await Products.searchProducts();
+  // const products = await Products.searchProducts();
   // Injetando produtos na página index dos views
-  res.render('index', { products });
+  // res.render('index', { products });
+  res.render('newindex');
 };

@@ -84,5 +84,9 @@ Product.delete = async function(id) {
   return product;
 }
 
+Product.searchAll = async function(text) {
+  const search = await ProductModel.find({ nameProd: /test/i }).sort({ createAt: -1 }).limit(5);
+  return search;
+}
 
 module.exports = Product;

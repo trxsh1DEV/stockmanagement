@@ -1,7 +1,166 @@
 <%- include('includes/head'); %>
-<%- include('includes/nav') %>
-    <main id="main">
-      <h1>Home</h1>
+  <%- include('includes/nav') %>
+
+    <main class="main">
+      <h1>Produtos Registrados: <span style="font-style: italic;">145</span></h1>
+      <section class="sidebar-header">
+
+        <form class="search-box" action="/products/search" method="post">
+          <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+          <input type="text" name="search-product" class="search-text" id="" placeholder="Pesquisar...">
+          <button class="search-btn" type="submit">
+            <i class="material-symbols-outlined loupe-blue">search</i>
+          </button>
+        </form>
+        <div class="filter_box">
+          <i class="material-symbols-outlined">filter_list</i>
+          <span>Filtros</span>
+        </div>
+        <a href="/product/register"><i class="material-symbols-outlined" id="add-product">add_shopping_cart</i></a>
+
+      </section>
+
+      <section class="products-main-info">
+
+        <article>
+          <aside class="values-products-main">R$ 70.216,00</aside>
+          <aside class="products-main-details">Valor em estoque</aside>
+        </article>
+        <article>
+          <aside class="values-products-main">R$ 25.958,00</aside>
+          <aside class="products-main-details">Custo do estoque</aside>
+        </article>
+        <article>
+          <aside class="values-products-main">R$ 44.258,00</aside>
+          <aside class="products-main-details">Previsão de lucro</aside>
+        </article>
+        <article>
+          <aside class="values-products-main">8</aside>
+          <aside class="products-main-details">Em falta</aside>
+        </article>
+        <article>
+          <aside class="values-products-main">2</aside>
+          <aside class="products-main-details">Sem estoque</aside>
+        </article>
+        <article>
+          <aside class="values-products-main">145</aside>
+          <aside class="products-main-details">Qtde em estoque</aside>
+        </article>
+
+      </section>
+
+      <section class="table-products-main">
+        <!--for demo wrap-->
+        <h1 class="text-center my-3">Tabela de produtos</h1>
+
+        <%- include('includes/messages') %>
+
+          <% if (products.length> 0) { %>
+            <div class="table-responsive">
+              <table class="table table-dark table-striped table-hover align-middle">
+                <thead class="products-thead-index">
+                  <tr>
+                    <th class="text-nowrap">ID<i class="material-symbols-outlined">swap_vert</i></th>
+                    <th class="text-nowrap">Produto<i class="material-symbols-outlined">swap_vert</i></th>
+                    <th class="text-nowrap">Categoria<i class="material-symbols-outlined">swap_vert</i></th>
+                    <th class="text-nowrap">Estoque<i class="material-symbols-outlined">swap_vert</i></th>
+                    <th class="text-nowrap">Preço<i class="material-symbols-outlined">swap_vert</i></th>
+                    <th class="text-nowrap">Descrição<i class="material-symbols-outlined">swap_vert</i></th>
+                    <th></th>
+                    <!-- <td><span>Catalógo</span> <i class="material-symbols-outlined">swap_vert</i></td> -->
+                  </tr>
+                </thead>
+                <tbody class="products-tbody-index position-relative">
+                  <!-- Esse contacts é por conta que no home controller onde estou pegando os contatos na BD, estou renderizando o obj {contacts} -->
+                  <% products.forEach(prod=> { %>
+                    <tr>
+                      <td>
+                        <% prod._id %><i class="material-symbols-outlined" title="Copiar ID">content_copy</i>
+                          <%#= prod._id %>
+                      </td>
+                      <td>
+                        <%= prod.nameProd %>
+                      </td>
+                      <td>
+                        <%= prod.category %>
+                      </td>
+                      <td id="item-price-index">
+                        <span class="position-absolute">01</span>
+                        <a href="" class="ms-4"><i id="icon-add" class="material-symbols-outlined">add</i></a>
+                        <a href="" class=""><i class="material-symbols-outlined">remove</i></a>
+                      </td>
+                      <!-- <td>1<a href="/product/<%#=prod._id%>"><span><i class="material-symbols-outlined">add_circle</i></span></a></td> -->
+                      <td><span>R$ </span>
+                        <%= prod.price %>
+                      </td>
+                      <td class="item-description-index mw-50 overflow-hidden text-nowrap"
+                        style="height: 50px; max-width: 200px;">
+                        <%= prod.description %>
+                      </td>
+                      <td class="text-end p-0 pe-1">
+                        <a href="/product/<%=prod._id%>"><i class="material-symbols-outlined"
+                            title="Editar">edit</i></a>
+                        <a href="/product/delete/<%=prod._id%>"><i class="material-symbols-outlined"
+                            title="Deletar">delete</i></a>
+                      </td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+              </table>
+            </div>
+            <% } else {%>
+              <div class="alert alert-primary">
+                <p class="text-center lead"><strong>Nenhum produto foi cadastrado</strong></p>
+              </div>
+              <% } %>
+                </div>
+                <div class="col-lg-2"></div>
+
+
+                <!-- Add product -->
+                <!-- 
+    <%# if (products.length > 0) { %>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="1">
+                <thead class="thead-main-products">
+                    <tr>
+                        <td><span>ID</span> <i class="material-symbols-outlined">swap_vert</i>
+                        </td>
+                        <td><span>Produto</span><i class="material-symbols-outlined">swap_vert</i></td>
+                        <td><span>Categoria</span><i class="material-symbols-outlined">swap_vert</i></td>
+                        <td><span>Estoque</span><i class="material-symbols-outlined">swap_vert</i></td>
+                        <td><span>Preço</span><i class="material-symbols-outlined">swap_vert</i></td>
+                        <td><span>Descrição</span></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody class="tbody-products-index">
+                  <%# products.forEach(prod => { %>
+                      <tr>
+                          <td><i class="material-symbols-outlined">content_copy</i><%#= prod._id %></td>
+                          <td><%#= prod.nameProd %></td>
+                          <td><%#= prod.category %></td>
+                          <td id="item-price-index">
+                              <a href=""><i id="icon-add" class="material-symbols-outlined">add</i></a>
+                              <a href=""><i class="material-symbols-outlined">remove</i></a>
+                          </td>
+                          <td><span>R$ </span><%#= prod.price %></td>
+                          <td><%#= prod.description %></td>
+                          <td>
+                              <a href="/product/<%#=prod._id%>"><i class="material-symbols-outlined">edit</i></a>
+                              <a href="/product/delete/<%#=prod._id%>"><i class="material-symbols-outlined">delete</i></a>
+                          </td>
+                      </tr>
+                  <%# }) %>
+                </tbody>
+            </table>
+        </div>
+        <%# } else { %>
+          <p style="text-align: center;">Nenhum produto foi cadastrado</p>
+        <%# } %>
+ -->
+      </section>
+
     </main>
 
     <%- include('includes/footer'); %>

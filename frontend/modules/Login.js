@@ -1,7 +1,4 @@
 import validator from "validator";
-// const login = new Login('form-login');
-// const register = new Login('.form-register');
-// register.init();
 
 export default class Login {
     constructor(formClass){
