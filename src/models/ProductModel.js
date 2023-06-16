@@ -85,7 +85,8 @@ Product.delete = async function(id) {
 }
 
 Product.searchAll = async function(text) {
-  const search = await ProductModel.find({ nameProd: /test/i }).sort({ createAt: -1 }).limit(5);
+  const exp = new RegExp(text, "gi");
+  const search = await ProductModel.find({ nameProd: exp }).sort({ createAt: -1 }).limit(10);
   return search;
 }
 

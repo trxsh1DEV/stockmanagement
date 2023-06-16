@@ -73,8 +73,14 @@ exports.delete = async (req, res) => {
 }
 
 exports.search = async (req, res) => {
-    // console.log(req.body);
-    const products = await Product.searchAll();
+    let products = {};
+    const {searchProduct} = req.body;
 
+    if(!searchProduct){
+        products = await Product.searchProducts();
+        return res.render('index', { products });;
+    }
+
+    products = await Product.searchAll(searchProduct);
     res.render('index', { products });
 }
