@@ -311,24 +311,24 @@ filter: blur(.8px);
 }
 
 /* Tabela dos produtos BootStrap*/
-.responsive-table .products-thead-index i:hover, .products-tbody-index i:hover{
+.table-responsive .products-thead-index th i:hover, .products-tbody-index i:hover{
   cursor: pointer;
   opacity: .6;
   transition: .4s all ease-in-out;
 }
 
-.products-tbody-index #item-price-index span{
+/* .products-tbody-index #item-price-index span{
   margin-top: 1px !important;
-}
-.products-tbody-index .text-danger{
-  background-color: #16f9c1 !important;
-}
+} */
 .responsive-table .table-dark a{
   outline: none;
   color: #fff;
 }
 .responsive-table .table-dark a:hover{
   text-decoration: none;
+}
+.products-tbody-index .item-description-index {
+  /* overflow: hidden !important; */
 }
 /* Fim Tabela dos produtos BootStrap */
 
