@@ -84,17 +84,24 @@
                       <td>
                         <%= prod.category %>
                       </td>
-                      <td id="item-price-index">
-                        <span class="position-absolute">01</span>
-                        <a href="" class="ms-4"><i id="icon-add" class="material-symbols-outlined">add</i></a>
-                        <a href="" class=""><i class="material-symbols-outlined">remove</i></a>
-                      </td>
+                      <td class="">
+                        <form method="post" action="/product/edit/<%=prod._id%>">
+                          <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                          <input class="w-25" type="number" min="0" max="100" step="1" value="<%= prod.quantity %>" id="my-input" readonly>
+                          <button id="decrement" type="submit" value="-1" class="sinals" name="productQtdSub" onclick="stepper(this)"> - </button>
+                          <button id="increment" type="submit" value="1" class="sinals" name="productQtdAdd" onclick="stepper(this)"> + </button>
+                          <!-- 
+                        <a href="/product/stockAdd/<%#=prod._id%>" id="increment" value="1" class="sinals" name="productQtdAdd" onclick="stepper(this)">+</a>
+                        <a href="/product/stockAdd/<%#=prod._id%>" id="decrement" value="1" class="sinals" name="productQtdSub" onclick="stepper(this)">-</a>
+                           -->
+                        </form>
+                    </td>
                       <!-- <td>1<a href="/product/<%#=prod._id%>"><span><i class="material-symbols-outlined">add_circle</i></span></a></td> -->
                       <td><span>R$ </span>
                         <%= prod.price %>
                       </td>
-                      <td class="item-description-index mw-50 overflow-hidden text-nowrap"
-                        style="height: 50px; max-width: 200px;">
+                      <td class="item-description-index overflow-hidden text-nowrap"
+                        style="max-width: 200px;">
                         <%= prod.description %>
                       </td>
                       <td class="text-end p-0 pe-1">
