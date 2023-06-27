@@ -42,32 +42,9 @@ exports.editProduct = async (req, res) => {
 }
 
 exports.edit = async (req, res) => {
-    
+
     try {
         if (!req.params.id) return res.render('404');
-
-        if (req.body.productQtdAdd == '1' || req.body.productQtdSub) {
-            console.log('foi');
-
-            let product = await Product.searchId(req.params.id);
-            let result = new Product(product);
-            await result.qtdeProduct(req.params.id);
-
-            // if (product.errors.length > 0) {
-            //     req.flash('errors', product.errors);
-            //     req.session.save(() => res.redirect(`/product/${req.params.id}`));
-            //     return;
-            // }
-
-            req.flash('success', 'Produto atualizado com sucesso!');
-            // req.session.save(() => res.redirect(`/product/${product.product._id}`));
-            req.session.save(() => res.redirect(`/products`));
-            console.log('acabou');
-            return;
-        }
-
-
-
 
         // Reenviando os dados do body como se fossemos criar um novo, mas n passamos pelo método register
         const product = new Product(req.body)
@@ -114,19 +91,22 @@ exports.quantityProduct = async (req, res) => {
 
     try {
         if (!req.params.id) return res.render('404');
-        // Reenviando os dados do body como se fossemos criar um novo, mas n passamos pelo método register
+        const subOrAdd = req.body;
 
-        const sumOrSub = new Product();
-        await sumOrSub.qtdeProduct(req.params?.id);
-        console.log(sumOrSub);
+        if (subOrAdd.btnProductQtd) {
+            let product = await Product.searchId(req.params.id);
+            let result = new Product(product);
+            await result.qtdeProduct(req.params.id, subOrAdd);
 
-        // if (sumOrSub.errors.length > 0) {
-        //     req.flash('errors', sumOrSub.errors);
-        //     req.session.save(() => res.redirect(`/product/${req.params.id}`));
-        //     return;
-        // }
-        // req.flash('success', 'Produto atualizado com sucesso!');
-        // req.session.save(() => res.redirect(`/product/${sumOrSub.sumOrSub._id}`));
+            if (result.errors.length > 0) {
+                req.flash('errors', result.errors);
+                req.session.save(() => res.redirect(`/products`));
+                return;
+            }
+
+            req.flash('success', 'Produto atualizado com sucesso!');
+            req.session.save(() => res.redirect(`/products`));
+        }
         return;
     } catch (e) {
         console.log(e);

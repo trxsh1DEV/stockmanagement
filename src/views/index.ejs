@@ -85,11 +85,11 @@
                         <%= prod.category %>
                       </td>
                       <td class="">
-                        <form method="post" action="/product/edit/<%=prod._id%>">
+                        <form method="post" action="/product/quantityProduct/<%=prod._id%>">
                           <input type="hidden" name="_csrf" value=<%= csrfToken %>>
                           <input class="w-25" type="number" min="0" max="100" step="1" value="<%= prod.quantity %>" id="my-input" readonly>
-                          <button id="decrement" type="submit" value="-1" class="sinals" name="productQtdSub" onclick="stepper(this)"> - </button>
-                          <button id="increment" type="submit" value="1" class="sinals" name="productQtdAdd" onclick="stepper(this)"> + </button>
+                          <button type="submit" value="-1" class="sinals" name="btnProductQtd"> - </button>
+                          <button type="submit" value="1" class="sinals" name="btnProductQtd"> + </button>
                           <!-- 
                         <a href="/product/stockAdd/<%#=prod._id%>" id="increment" value="1" class="sinals" name="productQtdAdd" onclick="stepper(this)">+</a>
                         <a href="/product/stockAdd/<%#=prod._id%>" id="decrement" value="1" class="sinals" name="productQtdSub" onclick="stepper(this)">-</a>
