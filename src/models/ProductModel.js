@@ -4,7 +4,7 @@ const ProductSchema = new mongoose.Schema({
   // id: { type: Number, required: true },
   nameProd: { type: String, required: true },
   category: { type: String, required: true },
-  quantity: { type: Number, default: 1, required: false },
+  quantity: { type: Number, default: 1 },
   price: { type: Number, required: true },
   description: { type: String, required: false },
   createAt: { type: Date, default: Date.now }
@@ -67,7 +67,7 @@ Product.prototype.validate = async function () {
   if (!this.body.nameProd) this.errors.push('O nome do produto não pode ficar vazio!');
   if (!this.body.category) this.errors.push('A categoria do produto não pode ficar vazia!');
   if (this.body.quantity) {
-    if (this.body.quantity <= 0) {
+    if (this.body.quantity < 0) {
       this.errors.push('A quantidade não pode ficar menor que 0');
     }
   }

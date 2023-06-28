@@ -27,12 +27,17 @@
                         <i class="material-symbols-outlined">attach_money</i>
                         <span>Preço</span>
                     </div>
+                        <% if (product.quantity || product.quantity == 0) { %>
+                            <input type="hidden" name="quantity" value="<%= product.quantity %>" readonly>
+                        <% } else { %>
+                            <input style="display: none;" type="hidden" name="quantity" value="1" readonly>
+                        <% } %>
                     <div class="inputBox">
-                        <textarea name="description" id="" cols="30" rows="10"><%= product.description %></textarea>
+                        <textarea name="description" id="" cols="30" rows="10" spellcheck="true"><%= product.description %></textarea>
                         <i class="material-symbols-outlined">post_add</i>
                         <span>Descrição</span>
+                        <%- include('../includes/messages'); %>
                     </div>
-                    <%- include('../includes/messages'); %>
                     <button class="btn-login" type="submit" style="--clr: #1e92ff;"><span>Salvar</span><i></i></button>
                 </div>
             </form>

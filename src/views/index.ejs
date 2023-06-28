@@ -23,27 +23,59 @@
       <section class="products-main-info">
 
         <article>
-          <aside class="values-products-main">R$ 70.216,00</aside>
-          <aside class="products-main-details">Valor em estoque</aside>
+        <!-- Functions Index Front-end -->
+        <% function priceTotal() {
+            let price = 0;
+
+            for( let index = 0; index < products.length; index++ ) {
+              price += products[index].price * products[index].quantity;
+            }
+
+            return price;
+        } %>
+
+        <% function emFalta() {
+          let faltando = 0;
+
+          for( let index = 0; index < products.length; index++ ) {
+            if(products[index].quantity <= 0){
+              faltando++;
+            }
+          }
+
+          return faltando;
+        } %>
+
+        <% function totalQuantity() {
+          let qtde = 0;
+
+          for( let index = 0; index < products.length; index++ ) {
+            qtde += products[index].quantity;
+          }
+
+          return qtde;
+        } %>
+
+        <!-- Fim Functions Index Front-end -->
+
+        <aside class="values-products-main">R$ <%= priceTotal() %></aside>
+        <aside class="products-main-details">Valor em estoque</aside>
+
         </article>
         <article>
-          <aside class="values-products-main">R$ 25.958,00</aside>
+          <aside class="values-products-main">Em produção</aside>
           <aside class="products-main-details">Custo do estoque</aside>
         </article>
         <article>
-          <aside class="values-products-main">R$ 44.258,00</aside>
+          <aside class="values-products-main">Em produção</aside>
           <aside class="products-main-details">Previsão de lucro</aside>
         </article>
         <article>
-          <aside class="values-products-main">8</aside>
+          <aside class="values-products-main"><%= emFalta() %></aside>
           <aside class="products-main-details">Em falta</aside>
         </article>
         <article>
-          <aside class="values-products-main">2</aside>
-          <aside class="products-main-details">Sem estoque</aside>
-        </article>
-        <article>
-          <aside class="values-products-main">145</aside>
+          <aside class="values-products-main"><%= totalQuantity() %></aside>
           <aside class="products-main-details">Qtde em estoque</aside>
         </article>
 

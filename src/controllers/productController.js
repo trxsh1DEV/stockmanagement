@@ -36,7 +36,7 @@ exports.editProduct = async (req, res) => {
     if (!req.params.id) return res.render('404');
 
     const product = await Product.searchId(req.params.id);
-
+    
     if (!product) return res.render('404');
 
     res.render('products/products', { product });
@@ -50,7 +50,7 @@ exports.edit = async (req, res) => {
         // Reenviando os dados do body como se fossemos criar um novo, mas n passamos pelo método register
         const product = new Product(req.body)
         await product.edit(req.params?.id);
-
+        
         if (product.errors.length > 0) {
             req.flash('errors', product.errors);
             req.session.save(() => res.redirect(`/product/${req.params.id}`));
@@ -77,7 +77,6 @@ exports.delete = async (req, res) => {
 
 exports.search = async (req, res) => {
     let products = {};
-    // console.log('oi', test);
     const { searchProduct } = req.body;
 
     if (!searchProduct) {
@@ -86,7 +85,6 @@ exports.search = async (req, res) => {
     }
 
     products = await Product.searchAll(searchProduct);
-    // console.log(products);
     res.render('index', { products });
 }
 
