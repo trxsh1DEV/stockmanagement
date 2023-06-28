@@ -9,5 +9,6 @@ import './assets/css/product.css';
 
 // Javascript
 import Login from './modules/Login';
+import Actions from './modules/actionsButtons';
 
 console.log('Hi curious');

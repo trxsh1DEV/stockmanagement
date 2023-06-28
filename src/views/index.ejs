@@ -75,8 +75,11 @@
                   <% products.forEach(prod=> { %>
                     <tr>
                       <td>
-                        <% prod._id %><i class="material-symbols-outlined" title="Copiar ID">content_copy</i>
-                          <%#= prod._id %>
+                        <!-- <form class="formCopy" action="../../frontend/modules/actionsButtons.js">
+                          <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                          </form> -->
+                          <i class="material-symbols-outlined teste" title="Copiar ID" id="copyID">content_copy</i>
+                          <p class="d-none"><%= prod._id %></p>
                       </td>
                       <td>
                         <%= prod.nameProd %>
@@ -90,13 +93,8 @@
                           <input class="w-25" type="number" min="0" max="100" step="1" value="<%= prod.quantity %>" id="my-input" readonly>
                           <button type="submit" value="-1" class="sinals" name="btnProductQtd"> - </button>
                           <button type="submit" value="1" class="sinals" name="btnProductQtd"> + </button>
-                          <!-- 
-                        <a href="/product/stockAdd/<%#=prod._id%>" id="increment" value="1" class="sinals" name="productQtdAdd" onclick="stepper(this)">+</a>
-                        <a href="/product/stockAdd/<%#=prod._id%>" id="decrement" value="1" class="sinals" name="productQtdSub" onclick="stepper(this)">-</a>
-                           -->
                         </form>
                     </td>
-                      <!-- <td>1<a href="/product/<%#=prod._id%>"><span><i class="material-symbols-outlined">add_circle</i></span></a></td> -->
                       <td><span>R$ </span>
                         <%= prod.price %>
                       </td>
@@ -123,49 +121,6 @@
                 </div>
                 <div class="col-lg-2"></div>
 
-
-                <!-- Add product -->
-                <!-- 
-    <%# if (products.length > 0) { %>
-        <div class="tbl-content">
-            <table cellpadding="0" cellspacing="0" border="1">
-                <thead class="thead-main-products">
-                    <tr>
-                        <td><span>ID</span> <i class="material-symbols-outlined">swap_vert</i>
-                        </td>
-                        <td><span>Produto</span><i class="material-symbols-outlined">swap_vert</i></td>
-                        <td><span>Categoria</span><i class="material-symbols-outlined">swap_vert</i></td>
-                        <td><span>Estoque</span><i class="material-symbols-outlined">swap_vert</i></td>
-                        <td><span>Preço</span><i class="material-symbols-outlined">swap_vert</i></td>
-                        <td><span>Descrição</span></td>
-                        <td></td>
-                    </tr>
-                </thead>
-                <tbody class="tbody-products-index">
-                  <%# products.forEach(prod => { %>
-                      <tr>
-                          <td><i class="material-symbols-outlined">content_copy</i><%#= prod._id %></td>
-                          <td><%#= prod.nameProd %></td>
-                          <td><%#= prod.category %></td>
-                          <td id="item-price-index">
-                              <a href=""><i id="icon-add" class="material-symbols-outlined">add</i></a>
-                              <a href=""><i class="material-symbols-outlined">remove</i></a>
-                          </td>
-                          <td><span>R$ </span><%#= prod.price %></td>
-                          <td><%#= prod.description %></td>
-                          <td>
-                              <a href="/product/<%#=prod._id%>"><i class="material-symbols-outlined">edit</i></a>
-                              <a href="/product/delete/<%#=prod._id%>"><i class="material-symbols-outlined">delete</i></a>
-                          </td>
-                      </tr>
-                  <%# }) %>
-                </tbody>
-            </table>
-        </div>
-        <%# } else { %>
-          <p style="text-align: center;">Nenhum produto foi cadastrado</p>
-        <%# } %>
- -->
       </section>
 
     </main>

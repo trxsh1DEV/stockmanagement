@@ -38,7 +38,7 @@ Product.prototype.qtdeProduct = async function (id, subOrAdd) {
     this.errors.push('Um produto não pode ter menos que 0 produto(s) no estoque')
   }
 
-  if(this.body.quantity > 99 && sum > 99){
+  if (this.body.quantity > 99 && sum > 99) {
     this.errors.push('Não é possível ter mais que 100 produto(s) no estoque')
   }
 
@@ -117,8 +117,17 @@ Product.delete = async function (id) {
 
 Product.searchAll = async function (text) {
   const exp = new RegExp(text, "gi");
-  const search = await ProductModel.find({ nameProd: exp }).sort({ createAt: -1 }).limit(10);
-  // console.log(exp);
+
+  let search;
+
+  if (mongoose.Types.ObjectId.isValid(text)) {
+    search = await ProductModel.findOne({ _id: text });
+    if (search) {
+      return [search];
+    }
+  }
+
+  search = await ProductModel.find({ nameProd: exp }).sort({ createAt: -1 }).limit(10);
   return search;
 }
 

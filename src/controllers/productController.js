@@ -1,4 +1,5 @@
 const Product = require('../models/ProductModel');
+// const test = require('../../frontend/modules/actionsButtons');
 
 exports.index = (req, res) => {
     res.render('products/products', { product: {} });
@@ -76,6 +77,7 @@ exports.delete = async (req, res) => {
 
 exports.search = async (req, res) => {
     let products = {};
+    // console.log('oi', test);
     const { searchProduct } = req.body;
 
     if (!searchProduct) {
@@ -84,6 +86,7 @@ exports.search = async (req, res) => {
     }
 
     products = await Product.searchAll(searchProduct);
+    // console.log(products);
     res.render('index', { products });
 }
 
@@ -113,3 +116,10 @@ exports.quantityProduct = async (req, res) => {
         res.render('404');
     }
 }
+
+/*
+Controllers que fiz para rotas que não vou usar, mas achei interesasnte por algum motivo deixar aq
+exports.test = (req, res) => {
+    console.log(req.body, res);
+}
+*/
