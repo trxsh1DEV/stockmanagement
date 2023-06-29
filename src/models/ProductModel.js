@@ -131,4 +131,10 @@ Product.searchAll = async function (text) {
   return search;
 }
 
+Product.filter = async function(value) {
+  let finalFilter = value;
+  finalFilter = await ProductModel.find({ category: value }).sort({ createAt: -1 }).limit(3);
+  return finalFilter;
+}
+
 module.exports = Product;

@@ -3,7 +3,7 @@
 
     <main class="main">
       <h1>Produtos Registrados: <span style="font-style: italic;">145</span></h1>
-      <section class="sidebar-header">
+      <header class="sidebar-header">
 
         <form class="search-box" action="/products/search" method="post">
           <input type="hidden" name="_csrf" value=<%= csrfToken %>>
@@ -12,13 +12,69 @@
             <i class="material-symbols-outlined loupe-blue">search</i>
           </button>
         </form>
-        <div class="filter_box">
+        <button type="button" class="btn btn-outline-dark p-0 filter_box" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <i class="material-symbols-outlined">filter_list</i>
           <span>Filtros</span>
+        </button>
+        <!-- Modal -->
+
+        <!-- Button trigger modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    
+    <form class="modal-content bg-dark" action="/products/categories" method="post">
+      <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+
+      <div class="modal-header">
+        <h5 class="modal-title w-100 text-center">Escolha uma categoria</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <div class="wrapper">
+
+          <div class="form-group">
+            <input class="radio-index" value="Memoria RAM" name="radioFilter" id="radio1" type='radio' />
+            <label for="radio1">Memoria RAM</label>
+          </div>
+
+          <div class="form-group">
+            <input class="radio-index" value="CPU" name="radioFilter" id="radio2" type='radio' />
+            <label for="radio2">CPU</label>
+          </div>
+
+          <div class="form-group">
+            <input class="radio-index" value="Storage" name="radioFilter" id="radio3" type='radio' />
+            <label for="radio3">Storage</label>
+          </div>
+
+          <div class="form-group">
+            <input class="radio-index" value="Compras de junho" name="radioFilter" id="radio3" type='radio' />
+            <label for="radio3">Compras de junho</label>
+          </div>
+
+          <div class="form-group">
+            <input class="radio-index" value="Comprado" name="radioFilter" id="Comprado" type='radio' />
+            <label for="radio4">Comprado</label>
+          </div>
+
         </div>
+      </div>
+
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-success">Salvar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+
+        <!--  -->
         <a href="/product/register"><i class="material-symbols-outlined" id="add-product">add_shopping_cart</i></a>
 
-      </section>
+      </header>
 
       <section class="products-main-info">
 

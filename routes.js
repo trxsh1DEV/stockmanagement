@@ -25,6 +25,7 @@ route.post('/product/edit/:id', loginRequired, productController.edit)
 route.get('/product/delete/:id', loginRequired, productController.delete);
 route.post('/products/search', loginRequired, productController.search);
 route.post('/product/quantityProduct/:id', loginRequired, productController.quantityProduct);
+route.post('/products/categories', loginRequired, productController.categories);
 
 
 // Rotas que não vão ser usadas ou q fiz sem necessidade

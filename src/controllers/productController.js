@@ -88,6 +88,16 @@ exports.search = async (req, res) => {
     res.render('index', { products });
 }
 
+exports.categories = async (req, res) => {
+    let filter = req.body.radioFilter;
+
+    if(!filter) return;
+    filter = await Product.filter(filter);
+    const products = filter;
+
+    res.render('index', { products });
+}
+
 exports.quantityProduct = async (req, res) => {
 
     try {

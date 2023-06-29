@@ -42,6 +42,81 @@ body{
   cursor: pointer;
   font-size: 30px;
 }
+.main .sidebar-header .modal {
+  top: 30vh;
+}
+
+/* Filter categorias */
+  .sidebar-header .modal .modal-body .wrapper{
+    padding: 10px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 35%;
+    margin-bottom: 10px;
+  }
+  .form-group:last-child {
+    margin-bottom: 0;
+  }
+  
+  .form-group label {
+    padding-left: 10px;
+    cursor: pointer;
+  }
+  
+  .radio-index, .checkbox {
+    cursor: pointer;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border: 3px solid turquoise;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+  }
+  
+  .checkbox {
+    border-radius: 0;
+  }
+  
+  .radio-index:before, .checkbox:before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: turquoise;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 600ms ease-in-out;
+    position: absolute;
+  }
+  
+  .checkbox:before {
+    border-radius: 0;
+    background: transparent;
+    border: 4px solid turquoise;
+    border-left: 0;
+    border-top: 0;
+    width: 7px;
+    height: 12px;
+    transform: rotate(45deg);
+    top: 2px;
+  }
+  
+  .radio-index:checked:before, .checkbox:checked:before {
+    opacity: 1;
+  }
+  
+  .radio-index:focus, .checkbox:focus {
+    box-shadow: 0 0 5px turquoise;
+  }
 
 .sidebar .navbar-items-btn {
   height: 60px;
