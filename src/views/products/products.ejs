@@ -17,25 +17,44 @@
                         <i class="material-symbols-outlined">inventory</i>
                         <span>Nome do produto</span>
                     </div>
-                    <div class="inputBox">
-                        <input type="text" name="category" value="<%= product.category %>" required>
+
+                    <!-- <div class="inputBox">
+                        <input type="text" name="category" value="<%#= product.category %>" required>
                         <i class="material-symbols-outlined">category</i>
                         <span>Categoria</span>
-                    </div>
+                    </div> -->
+                        <div class="select">
+                        <select name="category" id="format" required aria-readonly="true">
+                            <% if (product.category) { %>
+                                <option class="" selected disabled><%= product.category %></option>
+                                <% } else { %>
+                                    <option value="" class="" selected disabled >Escolha a categoria</option>
+                                    <% } %>
+                           <option class="" value="Memoria RAM">Memoria RAM</option>
+                           <option class="" value="CPU">CPU</option>
+                           <option class="" value="GPU">GPU</option>
+                           <option class="" value="Storage">Storage</option>
+                           <option class="" value="Kit">Kit</option>
+                           <option class="" value="Placa mae">Placa mae</option>
+                        </select>
+                     </div>
+
                     <div class="inputBox">
                         <input type="text" name="price" value="<%= product.price %>" required>
                         <i class="material-symbols-outlined">attach_money</i>
                         <span>Preço</span>
-                    </div>
+                    </div>                    
+
                         <% if (product.quantity || product.quantity == 0) { %>
                             <input type="hidden" name="quantity" value="<%= product.quantity %>" readonly>
                         <% } else { %>
                             <input style="display: none;" type="hidden" name="quantity" value="1" readonly>
                         <% } %>
-                    <div class="inputBox">
-                        <textarea name="description" id="" cols="30" rows="10" spellcheck="true"><%= product.description %></textarea>
-                        <i class="material-symbols-outlined">post_add</i>
-                        <span>Descrição</span>
+
+                    <div class="inputBox" >
+                        <i class="material-symbols-outlined" id="btn-close">post_add</i>
+                        <textarea name="description" spellcheck="true" cols="30" rows="10" id=""><%= product.description %></textarea>
+                        <span>Detalhes (Opcional)</span>
                         <%- include('../includes/messages'); %>
                     </div>
                     <button class="btn-login" type="submit" style="--clr: #1e92ff;"><span>Salvar</span><i></i></button>

@@ -41,7 +41,7 @@
     border: none;
     width: 100%;
     background-color: #333;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1.5px #1e92ff solid;
     color: #fff;
     font-weight: 300;
     border-radius: 25px;
@@ -69,7 +69,7 @@
 .container-form .form .inputBox textarea:focus ~ span
 {
     color: #1e92ff;
-    border: 1px solid #1e92ff;
+    border: 1.5px #1e92ff solid;
     background-color: #223243;
     transform: translateX(25px) translateY(-7px);
     font-size: 0.8em;
@@ -82,7 +82,7 @@
 .container-form .form .inputBox textarea:valid,
 .container-form .form .inputBox textarea:focus
 {
-    border: 1px solid #1e92ff;
+    border: 1.5px #1e92ff solid;
 }
 .container-form .form .inputBox i{
     position: absolute;

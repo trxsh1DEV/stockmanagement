@@ -2,7 +2,7 @@
   <%- include('includes/nav') %>
 
     <main class="main">
-      <h1>Produtos Registrados: <span style="font-style: italic;">145</span></h1>
+      <h1>Produtos Registrados: <span style="font-style: italic;"><%= totalQuantity() %></span></h1>
       <header class="sidebar-header">
 
         <form class="search-box" action="/products/search" method="post">
@@ -49,21 +49,25 @@
           </div>
 
           <div class="form-group">
-            <input class="radio-index" value="Compras de junho" name="radioFilter" id="radio3" type='radio' />
-            <label for="radio3">Compras de junho</label>
+            <input class="radio-index" value="GPU" name="radioFilter" id="radio4" type='radio' />
+            <label for="radio3">GPU</label>
           </div>
 
           <div class="form-group">
-            <input class="radio-index" value="Comprado" name="radioFilter" id="Comprado" type='radio' />
-            <label for="radio4">Comprado</label>
+            <input class="radio-index" value="Kit" name="radioFilter" id="radio5" type='radio' />
+            <label for="radio4">Kit</label>
+          </div>
+
+          <div class="form-group">
+            <input class="radio-index" value="Placa mae" name="radioFilter" id="radio5" type='radio' />
+            <label for="radio4">Placa mae</label>
           </div>
 
         </div>
       </div>
 
       <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="submit" class="btn btn-info">Salvar</button>
       </form>
     </div>
   </div>
@@ -130,10 +134,10 @@
           <aside class="values-products-main"><%= emFalta() %></aside>
           <aside class="products-main-details">Em falta</aside>
         </article>
-        <article>
-          <aside class="values-products-main"><%= totalQuantity() %></aside>
+        <!-- <article>
+          <aside class="values-products-main"><%#= totalQuantity() %></aside>
           <aside class="products-main-details">Qtde em estoque</aside>
-        </article>
+        </article> -->
 
       </section>
 
@@ -163,9 +167,6 @@
                   <% products.forEach(prod=> { %>
                     <tr>
                       <td>
-                        <!-- <form class="formCopy" action="../../frontend/modules/actionsButtons.js">
-                          <input type="hidden" name="_csrf" value=<%= csrfToken %>>
-                          </form> -->
                           <i class="material-symbols-outlined teste" title="Copiar ID" id="copyID">content_copy</i>
                           <p class="d-none"><%= prod._id %></p>
                       </td>

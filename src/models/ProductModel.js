@@ -6,6 +6,7 @@ const ProductSchema = new mongoose.Schema({
   category: { type: String, required: true },
   quantity: { type: Number, default: 1 },
   price: { type: Number, required: true },
+  // select: { type: String, required: false},
   description: { type: String, required: false },
   createAt: { type: Date, default: Date.now }
 });
@@ -87,6 +88,7 @@ Product.prototype.cleanUp = async function () {
     nameProd: this.body.nameProd,
     category: this.body.category,
     price: this.body.price,
+    // select: this.body.select,
     quantity: this.body.quantity,
     description: this.body.description
   }

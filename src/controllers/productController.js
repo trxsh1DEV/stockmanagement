@@ -19,7 +19,7 @@ exports.registerProduct = async (req, res) => {
 
         if (product.errors.length > 0) {
             req.flash('errors', product.errors);
-            req.session.save(() => res.redirect('/product'));
+            req.session.save(() => res.redirect('back'));
             return;
         }
 
@@ -48,7 +48,7 @@ exports.edit = async (req, res) => {
         if (!req.params.id) return res.render('404');
 
         // Reenviando os dados do body como se fossemos criar um novo, mas n passamos pelo método register
-        const product = new Product(req.body)
+        const product = new Product(req.body);
         await product.edit(req.params?.id);
         
         if (product.errors.length > 0) {
