@@ -116,7 +116,7 @@ exports.quantityProduct = async (req, res) => {
             }
 
             req.flash('success', 'Produto atualizado com sucesso!');
-            req.session.save(() => res.redirect(`/products`));
+            req.session.save(() => (res.redirect(`/products`)));
         }
         return;
     } catch (e) {

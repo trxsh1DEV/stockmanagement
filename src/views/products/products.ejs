@@ -1,8 +1,14 @@
 <%- include('../includes/head'); %>
 <%- include('../includes/nav'); %>
 
+    <style>
+        .container-form{
+            /* max-width: 1200px; */
+        }
+    </style>
+
     <main id="main">
-        <section class="container-login">
+        <section id="container-product" class="container-login">
 
             <% if (product._id) { %>
                 <form class="container-form" action="/product/edit/<%=product._id%>" method="post">
@@ -13,18 +19,18 @@
                 <div class="form signup">
                     <h1 class="fs-2">Cadastrar produto</h1>
                     <div class="inputBox">
-                        <input type="text" value="<%= product.nameProd %>" name="nameProd" required>
+                        <input class="product-input" type="text" value="<%= product.nameProd %>" name="nameProd" required>
                         <i class="material-symbols-outlined">inventory</i>
                         <span>Nome do produto</span>
-                    </div>
+                </div>
 
-                    <!-- <div class="inputBox">
-                        <input type="text" name="category" value="<%#= product.category %>" required>
+                    <div class="inputBox">
+                        <input class="product-input" type="text" name="category" value="<%#= product.category %>" required>
                         <i class="material-symbols-outlined">category</i>
                         <span>Categoria</span>
-                    </div> -->
+                    </div>
                         <div class="select">
-                        <select name="category" id="format" required aria-readonly="true">
+                        <select class="select-option" name="category" id="format" aria-readonly="true" required>
                             <% if (product.category) { %>
                                 <option class="" selected disabled><%= product.category %></option>
                                 <% } else { %>
@@ -40,23 +46,48 @@
                      </div>
 
                     <div class="inputBox">
-                        <input type="text" name="price" value="<%= product.price %>" required>
+                        <input class="product-input" type="text" name="outputStock" value="" required>
+                        <i class="material-symbols-outlined">calendar_month</i>
+                        <span>Entrada ou Saída</span>
+                    </div>
+
+                    <div class="inputBox">
+                        <input class="product-input" type="text" name="outputStock" value="" required>
+                        <i class="material-symbols-outlined">sell</i>
+                        <span>Fornecedor</span>
+                    </div>
+
+                    <div class="inputBox">
+                        <input class="product-input" type="text" name="price" value="<%= product.price %>" required>
                         <i class="material-symbols-outlined">attach_money</i>
-                        <span>Preço</span>
-                    </div>                    
+                        <span>Preço pago</span>
+                    </div>
+
+                    <div class="inputBox">
+                        <input class="product-input" type="text" name="price" value="<%= product.price %>" required>
+                        <i class="material-symbols-outlined">payments</i>
+                        <span>Valor de venda</span>
+                    </div>
+
+                    <div class="inputBox">
+                        <input class="product-input" type="text" name="price" value="<%= product.price %>" required>
+                        <i class="material-symbols-outlined">qr_code</i>
+                        <span>Marca/Modelo</span>
+                    </div>
 
                         <% if (product.quantity || product.quantity == 0) { %>
-                            <input type="hidden" name="quantity" value="<%= product.quantity %>" readonly>
+                            <input class="product-input" type="hidden" name="quantity" value="<%= product.quantity %>" readonly>
                         <% } else { %>
-                            <input style="display: none;" type="hidden" name="quantity" value="1" readonly>
+                            <input class="product-input" style="display: none;" type="hidden" name="quantity" value="1" readonly>
                         <% } %>
 
-                    <div class="inputBox" >
+                    <div class="inputBox" id="textarea">
+                        <textarea class="product-input" required name="description" spellcheck="true" cols="30" rows="10" id=""><%= product.description %></textarea>
                         <i class="material-symbols-outlined" id="btn-close">post_add</i>
-                        <textarea name="description" spellcheck="true" cols="30" rows="10" id=""><%= product.description %></textarea>
                         <span>Detalhes (Opcional)</span>
                         <%- include('../includes/messages'); %>
                     </div>
+                    
                     <button class="btn-login" type="submit" style="--clr: #1e92ff;"><span>Salvar</span><i></i></button>
                 </div>
             </form>
