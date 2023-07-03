@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 
 const ProductSchema = new mongoose.Schema({
-  // id: { type: Number, required: true },
   nameProd: { type: String, required: true },
   category: { type: String, required: true },
-  quantity: { type: Number, default: 1 },
+  provider: {type: String, required: false},
   price: { type: Number, required: true },
-  // select: { type: String, required: false},
+  selling: {type: Number, required: false},
+  brand: {type: String, required: false},
+  quantity: { type: Number, default: 1 },
   description: { type: String, required: false },
   createAt: { type: Date, default: Date.now }
 });
@@ -64,13 +65,18 @@ Product.prototype.edit = async function (id) {
 Product.prototype.validate = async function () {
   this.cleanUp();
   const price = Number(this.body.price);
-
+  
   if (!this.body.nameProd) this.errors.push('O nome do produto não pode ficar vazio!');
   if (!this.body.category) this.errors.push('A categoria do produto não pode ficar vazia!');
   if (this.body.quantity) {
     if (this.body.quantity < 0) {
       this.errors.push('A quantidade não pode ficar menor que 0');
     }
+  }
+
+  if(this.body.selling){
+    const selling = Number(this.body.selling);
+    if(!selling || this.body.price > selling) this.errors.push('O valor de venda tem que ser um número e ser maior que o preço pago!');
   }
 
   if (!price) this.errors.push('O preço não pode estar vazio ou ser menor que 0')
@@ -85,10 +91,18 @@ Product.prototype.cleanUp = async function () {
   }
 
   this.body = {
+    /*
+      provider: {type: String, required: true},
+  price: { type: Number, required: true },
+  selling: {type: Number, required: true},
+  brand: {type: String, required: true},
+     */
     nameProd: this.body.nameProd,
     category: this.body.category,
+    provider: this.body.provider,
     price: this.body.price,
-    // select: this.body.select,
+    selling: this.body.selling,
+    brand: this.body.brand,
     quantity: this.body.quantity,
     description: this.body.description
   }
